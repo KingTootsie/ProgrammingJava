@@ -7,9 +7,8 @@ public class BatmanRiddler {
 		int num3 = 0;
 		int num4 = 0;
 		int summed = 0;
-		int didgits = 0;
+		int digits = 0;
 		
-		int test = 0;
 		boolean success = false;
 		boolean same = false; //None of the digits are the same.
 		boolean rule_3 = false; //Digit in the the thousands place is 3 times the didgit in the tens place.
@@ -22,7 +21,7 @@ public class BatmanRiddler {
 			odd = false;
 			sum = false;
 			
-			if (num4 >= 10) {
+			if (num4 >= 10) { 
 				num4 = 0;
 				num3++;
 			}
@@ -40,12 +39,11 @@ public class BatmanRiddler {
 			
 			summed = num1 + num2 + num3 + num4;
 			
-			if (summed == 27) {
+			if (summed == 27) { //Checks if all the digits added up sum up to 27.
 				sum = true;
-				System.out.println("Sum is 27? " + sum); //Remove when done
 			}
 			
-			if ((num1 != num2) && (num1 != num3) && (num1 != num4)) {
+			if ((num1 != num2) && (num1 != num3) && (num1 != num4)) { //Checks if any of the numbers are the same.
 				same = false;
 			} else {
 				same = true;
@@ -69,24 +67,29 @@ public class BatmanRiddler {
 				same = true;
 			}
 			
-			didgits = ()
-			
-			System.out.print(num1);
-			System.out.print(num2);
-			System.out.print(num3);
-			System.out.println(num4);
-			
-			if ((sum == true) && (rule_3 == true) && (same == true) && (odd == true)) {
+			digits = (1000 * num1) + (100 * num2) + (10 * num3) + num4; //Combines all the numbers together
+
+			if (digits % 2 == 1) { //If the operator returns true, then the combination must be odd.
+				odd = true;
+			}
+
+			if ((num1 * 3) == num3) { //Checks if the number in the thousands place is 3 times the number in the tens place
+				rule_3 = true;
+			}
+
+
+			if ((sum == true) && (rule_3 == true) && (same == false) && (odd == true)) {
 				success = true;
 			}
 			
 			num4++;
 		}
 		
-		System.out.println("Same? " + same);
-		System.out.println("3 Rule? " + rule_3);
-		System.out.println("Odd? " + odd);
+		System.out.print("The combination is ");
+		System.out.print(num1);
+		System.out.print(num2);
+		System.out.print(num3);
+		System.out.println(num4);
 		
-		System.out.println("Success? " + success);
 	}
 }
