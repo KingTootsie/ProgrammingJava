@@ -42,30 +42,14 @@ public class BatmanRiddler {
 			if (summed == 27) { //Checks if all the digits added up sum up to 27.
 				sum = true;
 			}
-			
-			if ((num1 != num2) && (num1 != num3) && (num1 != num4)) { //Checks if any of the numbers are the same.
-				same = false;
-			} else {
+
+			//I understand that the below code is very messy looking, but It is the best I can do.
+			if ((num1 == num2) || (num1 == num3) || (num1 == num4) || (num2 == num1) || (num2 == num3) || (num2 == num4) || (num3 == num1) || (num3 == num2) || (num3 == num4) || (num4 == num1) || (num4 == num2) || (num4 == num3)) { //Checks if any of the numbers are the same.
 				same = true;
+			} else if (!((num1 == num2) || (num1 == num3) || (num1 == num4) || (num2 == num1) || (num2 == num3) || (num2 == num4) || (num3 == num1) || (num3 == num2) || (num3 == num4) || (num4 == num1) || (num4 == num2) || (num4 == num3))) {
+				same = false;
 			}
 			
-			if ((num2 != num1) && (num2 != num3) && (num2 != num4)) {
-				same = false;
-			} else {
-				same = true;
-			}
-			
-			if ((num3 != num1) && (num3 != num2) && (num3 != num4)) {
-				same = false;
-			} else {
-				same = true;
-			}
-			
-			if ((num4 != num1) && (num4 != num2) && (num4 != num3)) {
-				same = false;
-			} else {
-				same = true;
-			}
 			
 			digits = (1000 * num1) + (100 * num2) + (10 * num3) + num4; //Combines all the numbers together
 
@@ -80,16 +64,14 @@ public class BatmanRiddler {
 
 			if ((sum == true) && (rule_3 == true) && (same == false) && (odd == true)) {
 				success = true;
+			} else {
+				num4++;
 			}
-			
-			num4++;
 		}
-		
 		System.out.print("The combination is ");
 		System.out.print(num1);
 		System.out.print(num2);
 		System.out.print(num3);
 		System.out.println(num4);
-		
 	}
 }
